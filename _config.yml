@@ -27,7 +27,8 @@ markdown: kramdown
 theme: jekyll-theme-architect
 plugins:
   - jekyll-feed
-repository: "dmitrykarpenko/dmitrykarpenko.github.io"
+repository: dmitrykarpenko/dmitrykarpenko.github.io
+github: [metadata]
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
