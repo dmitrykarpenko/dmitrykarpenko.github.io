@@ -16,7 +16,7 @@
 title: The Blog
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  The Blog description. It will appear in meta and feed.xml.
+  Observations and ideas on software development, architecture, and algorithms.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
@@ -26,7 +26,7 @@ github_username:  jekyll
 markdown: kramdown
 theme: jekyll-theme-architect
 plugins:
-  - jekyll-feed
+  - jekyll-menus
 repository: dmitrykarpenko/dmitrykarpenko.github.io
 github: [metadata]
 

@@ -1,0 +1,28 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// .quote-debater-1 {
+//   color: rgb(55, 22, 90);
+// }
+// .quote-debater-2 {
+//   color: rgb(20, 56, 14);
+// }
+
+aside {
+  .menu-title {
+    font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .menu-post {
+    padding: 3px;
+    a {
+      font-size: 14px;
+    }
+    .date {
+      font-size: 10px;
+    }
+  }
+}
