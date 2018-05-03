@@ -136,7 +136,7 @@ This isn't possible now as it's a multiple inheritance -- but this time it's a r
 
 ## Idea
 
-Therefore, the idea is: **allow multiple inheritance of DTOs** -- where DTOs would be of classes with only data and no logic -- e.g. they should only contain auto-implemented properties.
+Therefore, the idea is to **allow multiple inheritance of DTOs** -- where DTOs would be of classes with only data and no logic -- e.g. they should only contain auto-implemented properties.
 The syntax could be something like the following:
 
 ```csharp
