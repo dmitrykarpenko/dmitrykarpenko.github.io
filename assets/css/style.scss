@@ -31,12 +31,18 @@ aside {
   }
 }
 
-heades {
-  z-index: -1;
-}
+// header {
+//   z-index: -1;
+// }
+//
+// .content-wrapper {
+//   z-index: 1;
+// }
 
-.content-wrapper {
-  z-index: 1;
+@media only screen and (max-width: 767px) {
+  .polaroid-images {
+      display: none;
+  }
 }
 
 // style images like a polaroid picture
