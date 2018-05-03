@@ -1,9 +1,7 @@
 ---
 layout: default
 title: "When dynamic typing is better than static"
-menus:
-  posts:
-    date: 2018-05-02
+date:   2018-05-02 00:00:00 +0300
 ---
 
 # {{ page.title }}

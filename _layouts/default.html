@@ -49,28 +49,15 @@
             </a>
           {% endif %}
 
-          <p class="menu-title">
-            Articles:
-          </p>
-
+          <p class="menu-title">Articles:</p>
+          {% assign sortedItems = site.posts | sort: "date" | reverse  %}
           <ul>
-          {% comment %}
-            TODO: remove the hack to sort items by date:
-            either move to a .rb plugin or use some standard way.
-          {% endcomment %}
-          {% capture renderedMenuPosts %}
-            {% for post in site.menus.posts %}
-              <li data-sort="{{ post.date }}" id="menu-{{ post.identifier }}" class="menu-post" >
-                <a href="{{ post.url }}" title="Go to {{ post.title }}">
-                  {{ post.title }}
-                </a>
-                <div class="date">
-                  {{ post.date }}
-                </div>
-              </li>
-            {% endfor %}
-          {% endcapture %}
-          {{ renderedMenuPosts | split:'</li>' | sort | reverse | join:'</li>' }}
+          {% for item in sortedItems %}
+            <li id="menu-{{ loop.index }}" class="menu-post">
+              <a href="{{ item.url }}" title="Go to {{ item.title }}">{{ item.title }}</a>
+              <div class="date">{{ item.date | date_to_long_string }}</div>
+            </li>
+          {% endfor %}
           </ul>
 
           {% if site.github.is_project_page %}

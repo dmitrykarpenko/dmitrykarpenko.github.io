@@ -1,9 +1,7 @@
 ---
 layout: default
 title: "Another page 01"
-menus:
-  posts:
-    date: 2018-05-01
+date:   2018-05-01 00:00:00 +0300
 ---
 
 ## Welcome to another page
