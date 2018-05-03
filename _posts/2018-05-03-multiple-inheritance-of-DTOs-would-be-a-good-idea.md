@@ -26,7 +26,7 @@ There is a common task, solution of which is still debated -- that is [object-re
 
 ### ORM
 
-The most popular ORM in .NET is [Entity Framework (EF)](https://www.nuget.org/packages/EntityFramework/) (just look at how many downloads it has gotten). Its main advantage is the ability to execute database queries that are written in strongly typed language (e.g. C# LINQ) which leads to much better refactoring, unit testing, and logic versioning. But one of its main disadvantages (especially for beginners striving to write both efficient and good code) is it's complicated object graphs (especially the detached ones), which lead to DTO classes like the following:
+The most popular ORM in .NET is [Entity Framework (EF)](https://www.nuget.org/packages/EntityFramework/) (just look at how many downloads it has gotten). Its main advantage is the ability to execute database queries that are written with strongly typed language (e.g. C# LINQ) which leads to much better refactoring, unit testing, and logic versioning. But one of its main disadvantages (especially for beginners striving to write both efficient and clean code) is it's complicated object graphs (especially the detached ones), which vertices are DTOs of classes like the following:
 
 ```csharp
 public class Person
@@ -50,7 +50,7 @@ And a typical DB queries looks like:
 
 ```csharp
 Person person = UnitOfWork.Persons.FirstOrDefault(p => p.PersonId == wantedPersonId);
-// suppose the query is set to join and map the respective person
+// suppose the query is set to join and map the respective person subobject
 Employee employee = UnitOfWork.Employees.FirstOrDefault(e => e.PersonId == wantedPersonId);
 
 // is true as EF holds a graph of fetched and mapped objects and takes references from there
@@ -65,7 +65,7 @@ employee.Person.Name = newName;
 UnitOfWork.Save();
 ```
 
-I already mentioned that graphs could be detached (i.e. fetched objects will not be in a graph -- see [tracking](https://docs.microsoft.com/en-us/ef/core/querying/tracking)), but here I'm just considering the easiest and the most default case.
+I already mentioned that fetched objects could be detached (i.e. will not be in a tracked graph -- see [tracking](https://docs.microsoft.com/en-us/ef/core/querying/tracking)), but here I'm just considering the easiest and the most default case.
 
 ### Micro ORM
 
@@ -107,9 +107,9 @@ EmployeeDto GetEmployee(Guid wantedPersonId)
 
 IMO, here the micro ORM looks better, as it does the same thing without having object graph overhead (both for a machine to execute and for a developer to understand/consider), and the syntax is almost as concise.
 
-The ["don't repeat yourself" (DRY)](http://wiki.c2.com/?DontRepeatYourself) principle is also respected in a sense that PersonDto's properties aren't copied to the EmployeeDto class. Her it looks like a minor detail but trust me -- if you have a database with hundreds of tables (which are sometimes modified) -- maintaining respective DTOs will be error-prone.
+The ["don't repeat yourself" (DRY)](http://wiki.c2.com/?DontRepeatYourself) principle is also respected in a sense that PersonDto's properties aren't copied to the EmployeeDto class. Her it looks like a minor detail but trust me -- if you have a database with hundreds of tables (which are modified sometimes) -- maintaining respective DTOs will be error-prone.
 
-There is a tool that should have eased such maintenance -- that is EF's code-first migrations -- but those aren't always possible to apply (e.g. when you have a precious ancient database to work with) and they are also used reluctantly ("what if I'll not be able to do ... DB change with them"). Therefore, I'm considering the case when a database is application independent.
+There is a tool that should have eased such maintenance -- that is EF's code-first migrations -- but those aren't always possible to apply (e.g. when you have a precious ancient database to work with) and they are also used reluctantly (bacause "what if I'll not be able to do ... type of DB change with them"). Therefore, I'm considering the case when a database is application independent.
 
 ### Micro ORM and multiple inheritance
 
@@ -136,15 +136,15 @@ This isn't possible now as it's a multiple inheritance -- but this time it's a r
 
 ## Idea
 
-Therefore, the idea is: **allow multiple inheritance for DTOs** -- where DTOs would be classes with only data and no logic -- e.g. they should only contain auto-implemented properties.
+Therefore, the idea is: **allow multiple inheritance of DTOs** -- where DTOs would be of classes with only data and no logic -- e.g. they should only contain auto-implemented properties.
 The syntax could be something like the following:
 
 ```csharp
-// WARNING: not an actual code!
+// WARNING: just a concept, not an actual code!
 public dto class FuturePersonDto
 {
   public Guid PersonId { get; set; } // OK
-  public string Name; // OK
+  public string Name; // could still be OK
 
   // not auto-implemented, error
   public string HiddenLogic { get { return PersonId + "_" + Name; } }
