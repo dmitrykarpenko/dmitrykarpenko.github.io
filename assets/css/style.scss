@@ -17,12 +17,16 @@ aside {
     font-weight: 700;
   }
   .menu-post {
-    padding: 3px;
+    padding: 5px;
+    //position: relative;
     a {
       font-size: 14px;
     }
     .date {
       font-size: 10px;
+      // position: absolute;
+      // right: 18px;
+      // bottom: 0px;
     }
   }
 }
