@@ -56,7 +56,7 @@ Employee employee = UnitOfWork.Employees
   .FirstOrDefault(e => e.PersonId == wantedPersonId);
 
 // is true as EF holds a graph of fetched and mapped objects
-// and takes references from there
+// and took both references from there
 bool doWeHaveAGraph = employee.Person == person;
 
 // one way of updating ...
