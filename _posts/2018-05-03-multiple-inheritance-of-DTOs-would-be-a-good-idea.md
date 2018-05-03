@@ -49,11 +49,14 @@ which correspond to the respective Person and Employee database tables connected
 And a typical DB queries looks like:
 
 ```csharp
-Person person = UnitOfWork.Persons.FirstOrDefault(p => p.PersonId == wantedPersonId);
+Person person = UnitOfWork.Persons
+  .FirstOrDefault(p => p.PersonId == wantedPersonId);
 // suppose the query is set to join and map the respective person subobject
-Employee employee = UnitOfWork.Employees.FirstOrDefault(e => e.PersonId == wantedPersonId);
+Employee employee = UnitOfWork.Employees
+  .FirstOrDefault(e => e.PersonId == wantedPersonId);
 
-// is true as EF holds a graph of fetched and mapped objects and takes references from there
+// is true as EF holds a graph of fetched and mapped objects
+// and takes references from there
 bool doWeHaveAGraph = employee.Person == person;
 
 // one way of updating ...
