@@ -18,7 +18,7 @@ It's really a bit disturbing as it leads to one of the following:
 
 Anyway -- time will tell.
 
-And why I'm telling you all this? Because I think there is a reasonable application for multiple inheritance in modern languages (especially backend ones).
+And why I'm telling you all this? Because I think there is a reasonable application for multiple inheritance in modern languages (especially back-end ones).
 
 ## Problem
 
@@ -146,7 +146,8 @@ public dto class FuturePersonDto
   public Guid PersonId { get; set; } // OK
   public string Name; // OK
 
-  public string HiddenLogic { get { return PersonId + "_" + Name; } } // not auto-implemented, error
+  // not auto-implemented, error
+  public string HiddenLogic { get { return PersonId + "_" + Name; } }
 }
 ```
 
