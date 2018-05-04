@@ -2,6 +2,7 @@
 layout: default
 title: "Multiple inheritance of DTOs would be a good idea"
 date:   2018-05-03 00:00:00 +0000
+tags: ORM C-Sharp Concept
 ---
 
 # {{ page.title }}

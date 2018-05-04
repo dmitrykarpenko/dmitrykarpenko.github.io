@@ -2,6 +2,7 @@
 layout: default
 title: "When dynamic typing is better than static"
 date:   2018-05-02 00:00:00 +0000
+tags: Computer-Science C-Sharp JavaScript
 ---
 
 # {{ page.title }}
