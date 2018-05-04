@@ -31,8 +31,8 @@
       </div>
       <div class="polaroid-images">
         {% comment %}Random number (based on a page content size) of spans is added to randomize rotation{% endcomment %}
-        {% assign zeroToFive = page.content.size | modulo: 5 %}
-        {% for i in (1..zeroToFive) %}<span></span>{% endfor %}
+        {% assign zeroToFour = page.content.size | modulo: 5 %}
+        {% for i in (1..zeroToFour) %}<span></span>{% endfor %}
         <a href="" title="Cubes"><img height="200" src="/assets/images/cubes-inside-a-cube.jpg" alt="Cubes" title="Cubes" /></a>
       </div>
     </header>
