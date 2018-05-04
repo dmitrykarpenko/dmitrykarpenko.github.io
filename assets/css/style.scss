@@ -10,6 +10,18 @@
 //   color: rgb(20, 56, 14);
 // }
 
+#main-content {
+  // makes article images also look like printed photos
+  img {
+      background: white;
+      margin: 5px;
+      padding: 10px;
+      -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+      -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+      box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  }
+}
+
 aside {
   .menu-title {
     font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
