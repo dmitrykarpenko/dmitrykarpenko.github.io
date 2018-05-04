@@ -37,9 +37,12 @@
         {% comment %}Random number (based on a page content size) of spans is added to randomize rotation{% endcomment %}
         {% assign zeroToFour = page.content.size | modulo: 5 %}
         {% for i in (1..zeroToFour) %}<span></span>{% endfor %}
-        {% assign imageUrl = page.image.url | default: "/assets/images/cubes-inside-a-cube.jpg" %}
+        {% assign imageSrc = page.image.src | default: "/assets/images/cubes-inside-a-cube.jpg" %}
         {% assign imageTitle = page.image.title | default: "Cubes" %}
-        <a href="" title="{{ imageTitle }}"><img height="200" src="{{ imageUrl }}" alt="{{ imageTitle }}" title="{{ imageTitle }}" /></a>
+        {% assign imageHref = page.image.href | default: page.url %}
+        <a href="{{ imageHref }}" title="{{ imageTitle }}">
+          <img height="200" src="{{ imageSrc }}" alt="{{ imageTitle }}" title="{{ imageTitle }}" />
+        </a>
       </div>
     </header>
 
