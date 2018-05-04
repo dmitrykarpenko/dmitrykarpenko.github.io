@@ -30,11 +30,14 @@
         {% endif %}
       </div>
       <div class="polaroid-images">
-          <a href="" title="Cubes"><img height="200" src="/assets/images/cubes-inside-a-cube.jpg" alt="Cubes" title="Cubes" /></a>
+        {% comment %}Random number (based on a page content size) of spans is added to randomize rotation{% endcomment %}
+        {% assign zeroToFive = page.content.size | modulo: 5 %}
+        {% for i in (1..zeroToFive) %}<span></span>{% endfor %}
+        <a href="" title="Cubes"><img height="200" src="/assets/images/cubes-inside-a-cube.jpg" alt="Cubes" title="Cubes" /></a>
       </div>
     </header>
 
-    <div id="content-wrapper" class="content-wrapper" >
+    <div id="content-wrapper" >
       <div class="inner clearfix">
         <section id="main-content">
           {{ content }}
