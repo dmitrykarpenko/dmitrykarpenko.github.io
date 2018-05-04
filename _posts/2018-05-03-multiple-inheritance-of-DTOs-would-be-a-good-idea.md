@@ -134,8 +134,7 @@ public class EmployeeCustomerDto : EmployeeDto, CustomerDto // compilation error
   // ...
 }
 ```
-
-This isn't possible now as it's a multiple inheritance -- but this time it's a reasonable one.
+This isn't possible now as it's a multiple inheritance -- but this time it's a reasonable one. On top of that -- such inheritance is not only reasonable in terms of _"is a"_ relation, but also naturally corresponds to the shape of a "joined" query response -- as each row of the query is effectively a flattened set of columns from all the selecting tables.
 
 ## Idea
 
