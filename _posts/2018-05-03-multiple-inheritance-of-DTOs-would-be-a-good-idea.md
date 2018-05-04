@@ -112,7 +112,7 @@ EmployeeDto GetEmployee(Guid wantedPersonId)
 }
 ```
 
-IMO, here the micro ORM looks better, as it does the same thing without having object graph overhead (both for a machine to execute and for a developer to understand/consider), and the syntax is almost as concise.
+IMO, here the micro ORM looks better, as it does the same thing without having the object graph overhead (both for a machine to execute and for a developer to understand/consider), and the syntax is almost as concise.
 
 The ["don't repeat yourself" (DRY)](http://wiki.c2.com/?DontRepeatYourself) principle is also respected in a sense that PersonDto's properties aren't copied to the EmployeeDto class. Her it looks like a minor detail but trust me -- if you have a database with hundreds of tables (which are modified sometimes) -- maintaining respective DTOs will be error-prone.
 
