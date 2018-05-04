@@ -58,11 +58,11 @@ That being said, those language characteristics should not be confused as it's w
 
 ## Objective
 
-Despite all the above, sometimes dynamically typed languages are indeed more convenient, expressive, or easy to understand -
-which leads to arguments like "but in `JavaScript` you can do ... [better]".
+Despite all the above, sometimes dynamically typed languages are indeed more convenient, expressive, or easy to understand -- which leads to arguments like "but in `JavaScript` you can do ... [better]".
 
-Therefore, I want to list such cases - that could either show how specific they are
-and how they could be worked around or how those are legit examples of how a dynamic language actually does better.
+Therefore, I want to list such cases - that could either show how specific they are and how they could be worked around or how those are legit examples of how a dynamic language actually does better.
+
+To make things more interesting, let's take into account that `C#` has [`dynamic`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/dynamic) and [`ExpandoObject`](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx) which lets us solve inherently dynamic tasks (like receiving objects of different structures on a single REST API endpoint and [probably] converting them to some statically typed objects with a separate logic). So, we should consider the cases where a dynamic language is better in general.
 
 ### Collection operations
 
