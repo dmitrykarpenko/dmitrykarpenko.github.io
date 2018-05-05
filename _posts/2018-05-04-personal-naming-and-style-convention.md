@@ -5,7 +5,7 @@ date:   2018-05-04 00:00:00 +0000
 tags: C-Sharp Concept
 image:
   src: "/assets/images/code-through-glasses.jpg"
-  title: "also helps to see"
+  title: "it also helps to see"
 ---
 
 # {{ page.title }}
