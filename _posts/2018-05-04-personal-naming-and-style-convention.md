@@ -87,11 +87,8 @@ IMO, `orders` is much better than `orderList` (and even better than `orderEnumer
 * it can be confusing for someone --  what's better -- `orderList` or `ordersList` -- which could lead to further confusions like "should this list contain only one item or it's a convention?"
 
 ```csharp
-public void DoWithCollections()
-{
-  IEnumerable<Order> orders = GetOrders(); // OK
-  var tenFirstOrder = GetTopOrder(count: 10); // OK
-}
+IEnumerable<Order> orders = GetOrders(); // OK
+var tenFirstOrder = GetTopOrder(count: 10); // OK
 ```
 
 ### Start an explaining comment with a space, a code comment without one; comment a code-related comment along with the code
@@ -99,20 +96,30 @@ public void DoWithCollections()
 StyleCop has a default advice which is similar to "start an explaining comment with a space", but I don't like the part where they ask to artificially start comments with `////`. I like to leave `////` for a more natural case (as it's shown in the following example). Sometimes I also use `///` as it allows to use typed references -- e.g. [with a `<see cref="DTOs.OrderDto"/>` tag](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/see).
 
 ```csharp
-public void ActWithComments()
-{
-  // regular code comment:
-  //var pointlessItem = GetItemObsolere();
+// regular code comment:
+//var pointlessItem = GetItemObsolere();
 
-  // code comment with an explaining comment:
-  /// TODO: implement <see cref="GetItems"/>
-  //var items = GetItems();
+// code comment with an explaining comment:
+/// TODO: implement <see cref="GetItems"/>
+//var items = GetItems();
 
-  // code-related comment is commented along with the related code:
-  //// temporary commented action explanation
-  //TemporaryCommentedAction();
-}
+// code-related comment is commented along with the related code:
+//// temporary commented action explanation
+//TemporaryCommentedAction();
 ```
+
+### Start methods with a verb followed by a meaningful return value name
+
+Even with very long and specific names it looks fine.
+
+```csharp
+var verySpecificOrders = GetVerySpecificOrders();
+```
+
+Method verb should also indicate whether a method returns something:
+* `Get...`, `Create...`, etc. for "queries" (that return a value);
+* `Do...`, `Act...`, etc. for "commands" (the void-returning ones);
+* specific verbs like `Correct...` (which is both a verb and a noun) or combination of the previous two (e.g. ActAndCreate...) for the methods that are both "commands" and "queries"; if such method is commonly used, sometimes it's reasonable to name it shorter -- e.g. Update instead of AddOrUpdate (if the method will also add a new element to a database if passed object's ID is a default value) -- but such shortcut cases are rather exceptional.
 
 ## Neverending story
 
