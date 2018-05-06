@@ -40,8 +40,8 @@ I personally prefer statically-typed languages, because:
 * compile-time errors are much better than runtime errors
   (except when those are caused by an IDE or compiler itself or not well-described);
 * they are indeed faster - therefore could be applied to much more interesting tasks;
-* IDEs also work much better with compile time statically typed languages -
-  e.g. even the best IDEs for `Python` tend to fail at variable search/rename.
+* IDEs also work much better with compile time statically typed languages -- e.g. even the best IDEs for `Python` tend to fail at variable search/rename -- which lead to the good old "search the whole project" option; in this regard static language code is much more **maintainable** -- which is a decent reason itself;
+* with a dynamic language you are much likely to overlook an error on an early stage of a project; even if everything in the project if to be tested, having a possible option of failing a presentation or even a production release due to a deeply rooted bug is quite disturbing; or more tests should be written (and then also **maintained**) which is redundant spendings.
 
 Once I heard an argument of how "thinking of a variables type in advance can be complicated".
 IMO, that should not be an argument even for a beginner.
@@ -79,8 +79,7 @@ var itemsByNames = items.GroupBy(i => i.Name);
 var projectedOtherItems = otherItems.Select(oi => new { oi.Id, oi.Name });
 ```
 
-If you will need initial collections after, it's fine. Otherwise it's just redundant -
-especially if you have to adhere to a specific naming convention (which can lead to even more cumbersome variable names).
+If you will need initial collections after, it's fine. Otherwise it's just redundant -- especially if you have to adhere to a specific naming convention (which can lead to even more cumbersome variable names).
 
 ### Parsing
 

@@ -20,7 +20,7 @@ for a good project and
 
 for a bad one.
 
-The counterargument to the second one is easy -- you probably wouldn't make the project much worth -- so just make a places that you work with as comfortable and organized as possible. Once I encountered a project with almost flat structure -- it had three or four poorly filled folders and all the other code files piled in the root of the project (the code itself had similar issues). IMO, in such cases you should just apply a proper style -- at least for your specific tasks -- as arguments like "we should keep the existing convention [even if it's pointless]" or "what if a new developer does not know what a presentation layer [or any other common term] is" does not sound reasonable to me.
+The counterargument to the second one is easy -- at such state you probably will not make the project much worse in terms of structure and style -- regardless of what structure and style do you use. So just make places that you work with as comfortable and organized as possible. Once I encountered a project with almost flat structure -- it had three or four poorly filled folders and all the other code files piled in the root of the project (the code itself had similar issues). IMO, in such cases you should just apply a proper style -- at least for your specific tasks -- as arguments like "we should keep the existing convention [even if it's pointless]" or "what if a new developer does not know what a presentation layer [or any other common term] is" does not sound reasonable to me.
 
 The first one could really be true -- at least that's our goal -- especially when a team spent some time properly setting up code analysis tools like [StyleCop](https://github.com/StyleCop/StyleCop) or even using [Code Contracts](https://docs.microsoft.com/en-us/dotnet/framework/debug-trace-profile/code-contracts) -- some decent standards can be achieved. But most of the times -- implementing features is more valuable and leaving opportunities for hacks is more convenient.
 
@@ -76,7 +76,7 @@ public void Act()
 }
 ```
 
-Speaking of implicitly typed variables -- I tend to use it a lot. And such naming really helps to make such code self-documented -- and you shouldn't spend time hovering over a variable or returning to it's definition.
+Speaking of implicitly typed variables -- I tend to use them a lot. And such naming really helps to make such code self-documented -- and you shouldn't spend time hovering over a variable or returning to it's definition.
 
 ### Name collections with their respective plural forms
 
@@ -119,7 +119,7 @@ var verySpecificOrders = GetVerySpecificOrders();
 Method verb should also indicate whether a method returns something:
 * `Get...`, `Create...`, etc. for "queries" (that return a value);
 * `Do...`, `Act...`, etc. for "commands" (the void-returning ones);
-* specific verbs like `Correct...` (which is both a verb and a noun) or combination of the previous two (e.g. ActAndCreate...) for the methods that are both "commands" and "queries"; if such method is commonly used, sometimes it's reasonable to name it shorter -- e.g. Update instead of AddOrUpdate (if the method will also add a new element to a database if passed object's ID is a default value) -- but such shortcut cases are rather exceptional.
+* specific verbs like `Correct...` (which is both a verb and an adjective) or combination of the previous two (e.g. ActAndCreate...) for the methods that are both "commands" and "queries"; if such method is commonly used, sometimes it's reasonable to name it shorter -- e.g. Update instead of AddOrUpdate (if the method will also add a new element to a database if passed object's ID is a default value) -- but such shortcut cases are rather exceptional.
 
 ## Neverending story
 

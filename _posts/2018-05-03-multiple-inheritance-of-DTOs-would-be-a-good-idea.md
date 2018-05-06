@@ -30,7 +30,7 @@ There is a common task, solution of which is still debated -- that is [object-re
 
 ### ORM
 
-The most popular ORM in .NET is [Entity Framework (EF)](https://www.nuget.org/packages/EntityFramework/) (just look at how many downloads it has gotten). Its main advantage is the ability to execute database queries that are written with strongly typed language (e.g. C# LINQ) which leads to much better refactoring, unit testing, and logic versioning. But one of its main disadvantages (especially for beginners striving to write both efficient and clean code) is it's complicated object graphs (especially the detached ones), which vertices are DTOs of classes like the following:
+The most popular [Object-relational mapper (ORM)](https://en.wikipedia.org/wiki/Object-relational_mapping) in .NET is [Entity Framework (EF)](https://www.nuget.org/packages/EntityFramework/) (just look at how many downloads it has gotten). Its main advantage is the ability to execute database queries that are written with strongly typed language (e.g. C# LINQ) which leads to much better refactoring, unit testing, and logic versioning. But one of its main disadvantages (especially for beginners striving to write both efficient and clean code) is it's complicated object graphs (especially the detached ones), which vertices are data transfer objects (DTOs) of classes like the following:
 
 ```csharp
 public class Person
@@ -50,7 +50,9 @@ public class Employee
 
 which correspond to the respective Person and Employee database tables connected with one-to-zero-or-one relation.
 
-And a typical DB queries looks like:
+Sometimes such classes are called entities, POCOs, or models -- depending on a project's naming convention or traditions. [The term DTO was originally related specifically to expensive remote calls](https://martinfowler.com/bliki/LocalDTO.html), I however think it also suits here as database calls are [I/O bound](https://en.wikipedia.org/wiki/I/O_bound) (i.e. somewhat expensive) operation by their nature -- regardless of whether they are remote or not. And data transferring itself is obviously related to databases.
+
+And that's how typical DB queries with Entity Framework look like:
 
 ```csharp
 Person person = UnitOfWork.Persons
@@ -116,7 +118,7 @@ IMO, here the micro ORM looks better, as it does the same thing without having t
 
 The ["don't repeat yourself" (DRY)](http://wiki.c2.com/?DontRepeatYourself) principle is also respected in a sense that PersonDto's properties aren't copied to the EmployeeDto class. Her it looks like a minor detail but trust me -- if you have a database with hundreds of tables (which are modified sometimes) -- maintaining respective DTOs will be error-prone.
 
-There is a tool that should have eased such maintenance -- that is EF's code-first migrations -- but those aren't always possible to apply (e.g. when you have a precious ancient database to work with) and they are also used reluctantly (bacause "what if I'll not be able to do ... type of DB change with them"). Therefore, I'm considering the case when a database is application independent.
+There is a tool that should have eased such maintenance -- that is EF's code-first migrations -- but those aren't always possible to apply (e.g. when you have a valuable legacy database to work with) and they are also used reluctantly (bacause "what if I'll not be able to do ... type of DB change with them"). Therefore, I'm considering the case when a database is application independent.
 
 ### Micro ORM and multiple inheritance
 
