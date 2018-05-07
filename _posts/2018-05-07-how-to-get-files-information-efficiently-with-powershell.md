@@ -101,7 +101,7 @@ Measure-Command { `
 
 gives the following output:
 
-`Windows 10` with an HDD:
+`Windows 10` with an HDD and `PowerShell` version 5.1:
 
 ```powershell
 --- just get FILES ---
@@ -122,7 +122,7 @@ TotalMinutes      : 1.36400835666667
 TotalSeconds      : 81.8405014
 ```
 
-`Windows Server 2012` with an SSD:
+`Windows Server 2012` with an SSD and `PowerShell` version 4.0:
 
 ```powershell
 --- just get FILES ---
