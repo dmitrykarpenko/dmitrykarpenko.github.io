@@ -432,9 +432,9 @@ TotalSeconds      : 81.8405014
 --- get FOLDER with filter and include ---
 Mode                LastWriteTime     Length Name
 ----                -------------     ------ ----
--a---        2018-05-07     13:42         18 dummy1.txt
--a---        2018-05-07     13:58         22 dummy2.txt
--a---        2018-05-07     13:58         23 dummy3.txt
+-a---        2018-05-07     14:42         18 dummy1.txt
+-a---        2018-05-07     14:58         22 dummy2.txt
+-a---        2018-05-07     14:58         23 dummy3.txt
 
 Ticks             : 2556940
 Days              : 0
@@ -449,9 +449,9 @@ TotalMinutes      : 0,00426156666666667
 TotalSeconds      : 0,255694
 
 --- get FILES with filter and include ---
--a---        2018-05-07     13:42         18 dummy1.txt
--a---        2018-05-07     13:58         22 dummy2.txt
--a---        2018-05-07     13:58         23 dummy3.txt
+-a---        2018-05-07     14:42         18 dummy1.txt
+-a---        2018-05-07     14:58         22 dummy2.txt
+-a---        2018-05-07     14:58         23 dummy3.txt
 
 Ticks             : 27944
 Days              : 0
@@ -466,9 +466,9 @@ TotalMinutes      : 4,65733333333333E-05
 TotalSeconds      : 0,0027944
 
 --- get FOLDER with include ---
--a---        2018-05-07     13:42         18 dummy1.txt
--a---        2018-05-07     13:58         22 dummy2.txt
--a---        2018-05-07     13:58         23 dummy3.txt
+-a---        2018-05-07     14:42         18 dummy1.txt
+-a---        2018-05-07     14:58         22 dummy2.txt
+-a---        2018-05-07     14:58         23 dummy3.txt
 
 Ticks             : 1262083
 Days              : 0
@@ -483,9 +483,9 @@ TotalMinutes      : 0,00210347166666667
 TotalSeconds      : 0,1262083
 
 --- get FILES with include ---
--a---        2018-05-07     13:42         18 dummy1.txt
--a---        2018-05-07     13:58         22 dummy2.txt
--a---        2018-05-07     13:58         23 dummy3.txt
+-a---        2018-05-07     14:42         18 dummy1.txt
+-a---        2018-05-07     14:58         22 dummy2.txt
+-a---        2018-05-07     14:58         23 dummy3.txt
 
 Ticks             : 29680
 Days              : 0
@@ -500,9 +500,9 @@ TotalMinutes      : 4,94666666666667E-05
 TotalSeconds      : 0,002968
 
 --- get FILES with filter ---
--a---        2018-05-07     13:42         18 dummy1.txt
--a---        2018-05-07     13:58         22 dummy2.txt
--a---        2018-05-07     13:58         23 dummy3.txt
+-a---        2018-05-07     14:42         18 dummy1.txt
+-a---        2018-05-07     14:58         22 dummy2.txt
+-a---        2018-05-07     14:58         23 dummy3.txt
 
 Ticks             : 147246479
 Days              : 0
@@ -517,9 +517,9 @@ TotalMinutes      : 0,245410798333333
 TotalSeconds      : 14,7246479
 
 --- just get FILES ---
--a---        2018-05-07     13:42         18 dummy1.txt
--a---        2018-05-07     13:58         22 dummy2.txt
--a---        2018-05-07     13:58         23 dummy3.txt
+-a---        2018-05-07     14:42         18 dummy1.txt
+-a---        2018-05-07     14:58         22 dummy2.txt
+-a---        2018-05-07     14:58         23 dummy3.txt
 
 Ticks             : 254360031
 Days              : 0
