@@ -91,6 +91,56 @@ IEnumerable<Order> orders = GetOrders(); // OK
 var tenFirstOrder = GetTopOrder(count: 10); // OK
 ```
 
+### Name groupings with an initial collection's name followed by the name of it's key
+
+At first glance such naming seems cumbersome, but it's made this way for a reason.
+
+```csharp
+var ordersByStatuses = orders.GroupBy(o => o.Status);
+
+foreach (var ordersByStatus in ordersByStatuses)
+{
+  var status = ordersByStatus.Key;
+
+  foreach (var order in ordersByStatus)
+  {
+    // ...
+  }
+}
+```
+
+In the example above, `ordersByStatuses` is effectively a collection of collections -- therefore, its name has two plural parts (`orders...` and `...Statuses`). When we iterate through it, each `ordersByStatus` element is also a collection. Note how `ordersByStatus` (the one that's of type `IGrouping<OrderStatus, Order>`) still reads plural, as it has the plural part `orders...` in it, while `...Status` is now single.
+
+The thing is, `ordersByStatus` has two almost independent parts in it -- the `ordersByStatus.Key` key and `ordersByStatus` as an `IEnumerable<Order>` itself. Therefore, both of those parts' names should be reflected in the grouping name -- and that's done by making such names using the following template: `{collectionName}By{KeyName}`.
+
+Thus, expressions like `var status = ordersByStatus.Key` and `var order in ordersByStatus` are self-documented and clear without mouse-hovering.
+
+### Dictionaries
+
+A dictionary could be named either like a collection (most of the times) or like a collection of groupings (when their keys collection is explicitly used later on).
+
+```csharp
+var currentOrders = new Dictionary<Guid, Order>(); // OK
+var ordersByIds = orders.ToDictionary(o => o.Id); // also OK
+
+// ...
+
+var orderIds = ordersByIds.Keys; // self-documented
+```
+
+### A variable name should have as few plural endings as possible
+
+For example:
+
+```csharp
+var orderNames = orders.Select(o => o.Name); // OK
+var ordersNames = orders.Select(o => o.Name); // not OK
+```
+
+Here `orderName` should be regarded as a solid word and `ordersNames` to be it's plural form. With this approach we have:
+* less naming ambiguity (e.g. between `orderNames` and `ordersNames`); also now one collection corresponds to one plural ending;
+* iteration variable names like `var orderName in orderNames` or `orderNames.Select(orderName => { /* ... */ })` now emerge naturally.
+
 ### Start an explaining comment with a space, a code comment without one; comment a code-related comment along with the code
 
 StyleCop has a default advice which is similar to "start an explaining comment with a space", but I don't like the part where they ask to artificially start comments with `////`. I like to leave `////` for a more natural case (as it's shown in the following example). Sometimes I also use `///` as it allows to use typed references -- e.g. [with the `<see cref="GetItems"/>` tag](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/see).
