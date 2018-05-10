@@ -69,7 +69,7 @@ public void Act()
   Order order;
 
   // allows meaningful prefixes
-  Order firstOrder = GetOrders(count: 1).First();l
+  Order firstOrder = GetOrders(count: 1).First();
 
   // implicitly typed variables are also made clear this way
   var topOrder = GetTopOrder();
@@ -184,10 +184,10 @@ void ActInline() => ActOther(_someValue);
 void ActInlineLong() =>
   ActOtherLongName(_someValueWithLongName);
 
-void ActWithBody() =>
+void ActWithBody()
 {
   //...
-};
+}
 ```
 
 ### Move arguments to another line, starting with an additional tab
