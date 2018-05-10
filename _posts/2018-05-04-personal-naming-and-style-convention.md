@@ -121,6 +121,121 @@ Method verb should also indicate whether a method returns something:
 * `Do...`, `Act...`, etc. for "commands" (the void-returning ones);
 * specific verbs like `Correct...` (which is both a verb and an adjective) or combination of the previous two (e.g. ActAndCreate...) for the methods that are both "commands" and "queries"; if such method is commonly used, sometimes it's reasonable to name it shorter -- e.g. Update instead of AddOrUpdate (if the method will also add a new element to a database if passed object's ID is a default value) -- but such shortcut cases are rather exceptional.
 
+### A delegate variable should be named as if it were a method, but starting with a lowercase letter
+
+The lambda
+
+```csharp
+Func<string, string> getFormattedName =
+  originalName =>
+  {
+    //...
+    return formattedName;
+  };
+```
+
+should to the same thing as the method
+
+```csharp
+string GetFormattedName(string originalName)
+{
+  //...
+  return formattedName;
+};
+```
+
+As we often use `Action`s and `Func`s and not self-defined delegates, a lambda's name could sometimes include a name of it's variable to make it clear for the caller. For example:
+
+```csharp
+Func<string, string> getFormattedNameFromOriginalName =
+  originalName =>
+  {
+    //...
+    return formattedName;
+  };
+```
+
+here it's obvious that the argument should be and should be named `originalName` and not `obj` or `arg1`.
+
+## Formatting
+
+### Lambda's formatting should look like method's
+
+Lambdas
+
+```csharp
+Action actInline = () => actOther(someValue);
+
+Action actInlineLong = () =>
+  actOtherLongName(someValueWithLongName);
+
+Action actWithBody =
+  () =>
+  {
+    //...
+  };
+```
+
+should look similar to
+
+```csharp
+void ActInline() => ActOther(_someValue);
+
+void ActInlineLong() =>
+  ActOtherLongName(_someValueWithLongName);
+
+void ActWithBody() =>
+{
+  //...
+};
+```
+
+### Move arguments to another line, starting with an additional tab
+
+That applies to both arguments declaration and usage. Such formatting is especially important when passing lambda arguments:
+
+```csharp
+public void ProcessOrder(OrderModel order) =>
+  ProcessOrderBase(order,
+    doFirst: o =>
+    {
+      // ...
+    },
+    doThird: o =>
+    {
+      // ...
+    });
+
+public void ProcessOrderBase(OrderModel order,
+  Action<OrderModel> doFirst,
+  Action<OrderModel> doSecond = null,
+  Action<OrderModel> doThird = null)
+{
+  // ...
+}
+```
+
+The `doFirst` named argument here is optional, added just to make things clear. The `doThird` named argument here is mandatory, even if the first one isn't specified, as we want to call `doThird` specifically.
+
+If the `OrderModel order` declaration would start form a new line in the definition, it should also start from a new line on a caller's side if several arguments are passed.
+
+### Move expression-bodied function arguments to another line, starting with two additional tabs
+
+Here, `ProcessOrderMore`'s arguments `ClientModel client` and `SellerModel seller` have two additional tabs in front of them in order to visually stand out from the `ProcessOrderMoreBase` call.
+
+```csharp
+public void ProcessOrderMore(OrderModel order,
+    ClientModel client,
+    SellerModel seller) =>
+  ProcessOrderMoreBase(order,
+    client,
+    seller,
+    m =>
+    {
+      // ...
+    });
+```
+
 ## Neverending story
 
 I've only started writing to this list. And new conventions will probably appear -- at least because languages evolve -- and their new features can require new conventions in order to be used in concert with the previous ones.
