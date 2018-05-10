@@ -111,3 +111,40 @@ aside {
       transform: rotate(-18deg);
   }
 }
+
+footer {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
+  border-top: solid 1px #275da1;
+  .inner {
+    @media only screen and (max-width: 959px) and (min-width: 768px) {
+        width: 740px;
+    }
+    @media only screen and (max-width: 767px) {
+        width: 93%;
+    }
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+    color: #9ddcff;
+    .information {
+      width: 540px;
+      font-weight: normal;
+      .contacts {
+        a {
+          color: #fff;
+          &:hover {
+            color: #9ddcff;
+          }
+        }
+        margin-bottom: 0.2em;
+        font-size: 18px;
+      }
+      .copyright {
+        font-size: 14px;
+      }
+    }
+  }
+}
