@@ -178,6 +178,45 @@ void ActWithMultiLineComments(int number/* <- should rename this argument */,
 }
 ```
 
+### You shouldn't use shortenings or abbreviations of existing names to create a new one, except for inline lambdas
+
+For example:
+
+```csharp
+var order = new Order(); // OK
+var ord = new Order(); // shortening, not OK
+
+var topCustomerOrders = GetCustomerOrders(customerId, count); // OK
+var topOrders = GetCustomerOrders(customerId, count); // still OK if no collisions
+var topOrds = GetOrders(); // shortening, not OK
+var topCOs = GetOrders(); // abbreviations, not OK
+var cos = GetOrders(); // abbreviations, not OK
+```
+
+In this case we'll find all related snippets when searching by a name part, e.g. `customerorders` or `orders`, case insensitive.
+
+The exception here are inline lambdas:
+
+```csharp
+var paidCustomerOrders = customerOrders
+  .Where(/* here it's OK -> */co => co.Status == OrderStatus.Paid);
+
+var paidCustomerOrders = customerOrders
+  .Where(/* still OK -> */o => o.Status == OrderStatus.Paid);
+```
+
+### Booleans (nullable booleans) should be named as a true-or-false (true-or-false-or-do-not-know) question
+
+For example:
+
+```csharp
+bool isValid; //OK
+var areAllOrdersValid = orders.All(o => o.CalculateIsValid()); // OK
+bool? isOrderValid = order?.CalculateIsValid(); // OK
+
+bool validOrder; // not OK, sounds like it's of type Order
+```
+
 ### Start methods with a verb followed by a meaningful return value name
 
 Even with very long and specific names it looks fine.
@@ -291,14 +330,14 @@ If the `OrderModel order` declaration would start form a new line in the definit
 
 ### Move expression-bodied function arguments to another line, starting with two additional tabs
 
-Here, `ProcessOrderMore`'s arguments `ClientModel client` and `SellerModel seller` have two additional tabs in front of them in order to visually stand out from the `ProcessOrderMoreBase` call.
+Here, `ProcessOrderMore`'s arguments `CustomerModel customer` and `SellerModel seller` have two additional tabs in front of them in order to visually stand out from the `ProcessOrderMoreBase` call.
 
 ```csharp
 public void ProcessOrderMore(OrderModel order,
-    ClientModel client,
+    CustomerModel customer,
     SellerModel seller) =>
   ProcessOrderMoreBase(order,
-    client,
+    customer,
     seller,
     m =>
     {
