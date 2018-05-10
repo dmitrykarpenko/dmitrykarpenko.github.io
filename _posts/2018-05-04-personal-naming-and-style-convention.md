@@ -93,19 +93,39 @@ var tenFirstOrder = GetTopOrder(count: 10); // OK
 
 ### Start an explaining comment with a space, a code comment without one; comment a code-related comment along with the code
 
-StyleCop has a default advice which is similar to "start an explaining comment with a space", but I don't like the part where they ask to artificially start comments with `////`. I like to leave `////` for a more natural case (as it's shown in the following example). Sometimes I also use `///` as it allows to use typed references -- e.g. [with a `<see cref="DTOs.OrderDto"/>` tag](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/see).
+StyleCop has a default advice which is similar to "start an explaining comment with a space", but I don't like the part where they ask to artificially start comments with `////`. I like to leave `////` for a more natural case (as it's shown in the following example). Sometimes I also use `///` as it allows to use typed references -- e.g. [with the `<see cref="GetItems"/>` tag](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/see).
+
+Multi-Line comment (`/* ... */`) should be used for specific cases of commenting a large code comment manually (e.g. in an unspecialized text editor where the autocomment feature isn't available) or commenting a small part inside of a code line (e.g. to temporarily comment a method's argument or to write a comment specifically pointing at some place). In the following examples such comments are also used to mark explanations (i.e. comments to comments).
 
 ```csharp
-// regular code comment:
-//var pointlessItem = GetItemObsolere();
+void ActWithComments()
+{
+  /*
+    regular code comment:
+  */
+  //var pointlessItem = GetItemObsolere();
 
-// code comment with an explaining comment:
-/// TODO: implement <see cref="GetItems"/>
-//var items = GetItems();
+  /*
+    code comment with an explaining comment:
+  */
+  /// TODO: implement <see cref="GetItems"/>
+  //var items = GetItems();
 
-// code-related comment is commented along with the related code:
-//// temporary commented action explanation
-//TemporaryCommentedAction();
+  /*
+    code-related comment is commented along with the related code:
+  */
+  //// temporary commented action explanation
+  //TemporaryCommentedAction();
+}
+
+/*
+  Multi-Line comment examples:
+*/
+void ActWithMultiLineComments(int number/* <- should rename this argument */,
+  /* int redundantNumber, */ int orderNumber)
+{
+  // ...
+}
 ```
 
 ### Start methods with a verb followed by a meaningful return value name
