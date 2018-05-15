@@ -34,7 +34,6 @@
         {% endif %}
       </div>
       <div class="polaroid-images">
-        {{page.url.size | inspect}}
         {% comment %}Random number (based on a page content size and url size) of spans is added to randomize image rotation{% endcomment %}
         {% assign zeroToFour = page.content.size | plus: page.url.size | modulo: 5 %}
         {% for i in (1..zeroToFour) %}<span></span>{% endfor %}
@@ -66,14 +65,24 @@
           {% endif %}
 
           <p class="menu-title">Articles:</p>
+          {% assign shownItemsCount = 7 %}
           {% assign sortedItems = site.posts | sort: "date" | reverse  %}
+          {% assign itemsSize = sortedItems.size  %}
           <ul>
-          {% for item in sortedItems %}
-            <li id="menu-{{ loop.index }}" class="menu-post">
-              <a href="{{ item.url }}" title="Go to {{ item.title }}">{{ item.title }}</a>
-              <div class="date">{{ item.date | date_to_long_string }}</div>
-            </li>
-          {% endfor %}
+            {% for item in sortedItems limit: shownItemsCount %}
+              {% include menu-post.html item=item %}
+            {% endfor %}
+            {% if itemsSize > shownItemsCount %}
+              <li class="more-posts">
+                <input type="checkbox" id="show-more-posts">
+                <label for="show-more-posts"></label>
+                <ul>
+                  {% for item in sortedItems offset: shownItemsCount %}
+                    {% include menu-post.html item=item index=forloop.index %}
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
           </ul>
 
           {% if site.github.is_project_page %}
