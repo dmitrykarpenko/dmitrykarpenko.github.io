@@ -3,6 +3,13 @@
 
 @import "{{ site.theme }}";
 
+//// Uncomment to debug ghost elements
+// * {
+//   background: #000 !important;
+//   color: #0f0 !important;
+//   outline: solid #f00 1px !important;
+// }
+
 // .quote-debater-1 {
 //   color: rgb(55, 22, 90);
 // }
@@ -210,6 +217,9 @@ footer {
     margin: 0 auto;
     color: #9ddcff;
     .information {
+      @media only screen and (max-width: 767px) {
+          width: 100%;
+      }
       width: 540px;
       font-weight: normal;
       .contacts {
