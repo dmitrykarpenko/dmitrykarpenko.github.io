@@ -78,7 +78,7 @@
                 <label for="show-more-posts"></label>
                 <ul>
                   {% for item in sortedItems offset: shownItemsCount %}
-                    {% include menu-post.html item=item index=forloop.index %}
+                    {% include menu-post.html item=item %}
                   {% endfor %}
                 </ul>
               </li>
