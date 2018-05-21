@@ -3,6 +3,7 @@ layout: default
 title: "Reducing any code duplication"
 date:   2018-05-08 00:00:00 +0000
 tags: Clean-Code C-Sharp Concept
+comments: true
 image:
   src: "/assets/images/converging-parts-rainbow.jpg"
   title: "parts to combine"

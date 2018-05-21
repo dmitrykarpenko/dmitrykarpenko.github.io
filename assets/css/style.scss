@@ -31,6 +31,16 @@
   }
 }
 
+#disqus-content #disqus-content-top {
+  @media only screen and (max-width: 959px) {
+      width: 100%;
+  }
+  width: 504px;
+  height: 42px;
+  margin: 0 auto;
+  background: transparent url("/assets/images/sidebar-bg-horizontal.jpg") 0 0 no-repeat;
+}
+
 aside {
   .menu-title {
     font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;

@@ -3,6 +3,7 @@ layout: default
 title: "How to get files information efficiently with PowerShell"
 date:   2018-05-07 00:00:00 +0000
 tags: PowerShell
+comments: true
 image:
   src: "/assets/images/unexpected-speed.jpg"
   title: "isn't always expected"
