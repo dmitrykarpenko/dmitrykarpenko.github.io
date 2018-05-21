@@ -69,7 +69,11 @@
               <div id="disqus_thread"></div>
               <script>
                 var disqus_config = function () {
-                  this.page.url = "{{ site.url }}{{ page.url }}";
+                  var siteUrl = "{{ site.url }}";
+                  if (!siteUrl && window && window.location && window.location.href) {
+                    siteUrl =  window.location.href;
+                  }
+                  this.page.url = siteUrl + "{{ page.url }}";
                   this.page.identifier = "{{ page.id }}";
                 };
                 (function() { // DON'T EDIT BELOW THIS LINE
