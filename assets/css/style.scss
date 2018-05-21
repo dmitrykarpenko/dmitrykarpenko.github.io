@@ -33,7 +33,11 @@
 
 #disqus-content #disqus-content-top {
   @media only screen and (max-width: 959px) {
-      width: 100%;
+      width: inherit;
+      height: inherit;
+      margin-bottom: 42px;
+      background-image: none;
+      border-top: solid 1px #ddd;
   }
   width: 504px;
   height: 42px;
