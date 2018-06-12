@@ -23,6 +23,8 @@ IMO, not only code duplication isn't aesthetic -- it's also:
 
 The third pro-copy-pasting argument is a bit more tricky, as it's often applied to cases like the following:
 
+<!--preview-break-->
+
 ```csharp
 public void ActOriginal()
 {

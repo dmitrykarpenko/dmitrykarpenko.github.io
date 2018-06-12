@@ -60,6 +60,41 @@
   background: transparent url("/assets/images/sidebar-bg-horizontal.jpg") 0 0 no-repeat;
 }
 
+.paginator-posts {
+  margin-top: 20px;
+  .post {
+    // background: white;
+    margin: 25px 0;
+    background-color: #fff;
+    padding: 10px;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 3px 5px rgba(0,0,0,.3);
+    box-shadow: 0 3px 5px rgba(0,0,0,.3);
+
+    // max-width: 95%;
+
+    h2, h3, .author {
+      padding-left: 33px;
+      .date {
+        font-size: 13px;
+      }
+    }
+
+    .content {
+      // display: block;
+      padding-bottom: 23px;
+
+      ol {
+        margin-left: 23px;
+      }
+
+      .read-more {
+        float: right;
+      }
+    }
+  }
+}
+
 aside {
   .menu-title {
     @extend .handwritten;

@@ -29,6 +29,8 @@ and
 
 respectively.
 
+<!--preview-break-->
+
 Disclaimer:
 I'm obviously not talking about the cases of:
 * strict performance requirements;

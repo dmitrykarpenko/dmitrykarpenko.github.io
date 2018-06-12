@@ -24,6 +24,8 @@ Let's also state the requirements:
 
 Sounds like a real-life<sup>TM</sup> task, doesn't it?
 
+<!--preview-break-->
+
 ## Preconditions
 
 Let's set some preconditions:

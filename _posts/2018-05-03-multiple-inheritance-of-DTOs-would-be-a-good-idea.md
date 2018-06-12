@@ -25,6 +25,8 @@ Anyway -- time will tell.
 
 And why I'm telling you all this? Because I think there is a reasonable application for multiple inheritance in modern languages (especially back-end ones).
 
+<!--preview-break-->
+
 ## Problem
 
 There is a common task, solution of which is still debated -- that is [object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping) and whole [ORM vs Micro ORM debate](http://gunnarpeipman.com/2017/05/micro-orm/).

@@ -40,7 +40,12 @@ private static void QuickSort<T>(T[] items, int low, int high)
 
 What's left is to implement the `Partition` function which internally choses the `pivot` and moves smaller or equal (compared to `pivot`) items to the left of the returned index `pi` and greater or equal (compared to `pivot`) to the right of `pi`.
 
-It turns out, that there are two commonly used types of such functions - the Lomuto partition an the Hoare partition, which:
+It turns out, that there are two commonly used types of such functions, which are more than different.
+
+<!--preview-break-->
+
+Those two are the Lomuto partition an the Hoare partition, which:
+
 * have completely different performance -- Hoare's not only considers the degenerate case of a sorted array (subarray), but also makes [~3 times less swaps](https://cs.stackexchange.com/a/11550) than Lomuto's;
 * have completely different code and looping -- Hoare's moves from two ends, Lomuto's -- form one end;
 * Lomuto's sets the `pivot` item to it's final place in the initial `items` array and returns its index, while as Hoare's leaves `pivot` either in the left or the right part (i.e. either at `pi` or at `pi + 1`), thus, it affects the recurring `QuickSort` function itself as it should either include or not include the item at `pi` to the next recurring calls.

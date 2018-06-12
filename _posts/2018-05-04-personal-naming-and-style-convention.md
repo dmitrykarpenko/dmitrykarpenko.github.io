@@ -25,6 +25,8 @@ The first one could really be true -- at least that's our goal -- especially whe
 
 Everybody's probably heard of how [naming things is one of the hardest things](https://skeptics.stackexchange.com/questions/19836/has-phil-karlton-ever-said-there-are-only-two-hard-things-in-computer-science). On top of that -- while code effectively is a text, it's perceived more like a scheme.
 
+<!--preview-break-->
+
 ## Code is like a scheme
 
 Have you ever noticed how even heavily blurred code is still distinguishable?
