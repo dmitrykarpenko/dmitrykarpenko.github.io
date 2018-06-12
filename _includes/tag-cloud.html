@@ -1,12 +1,37 @@
-<h2>Tags</h2>
-{% capture temptags %}
-  {% for tag in site.tags %}
-    {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+{% capture tempTags %}
+  {% assign siteTags = site.tags %}
+
+  {% comment %} --- filter by include tags if provided --- {% endcomment %}
+  {% assign includeTagNames = include.tags %}
+  {% if includeTagNames %}
+    {% assign includeTags = "" | split: "" %}
+
+    {% for tag in siteTags %}
+      {% assign tagName = tag[0] %}
+      {% if includeTagNames contains tagName %}
+        {% assign includeTags = includeTags | push: tag %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign siteTags = includeTags %}
+  {% endif %}
+
+  {% for tag in siteTags %}
+    {% assign tagName = tag[0] %}
+    {{ tag[1].size | plus: 1000 }}#{{ tagName }}#{{ tag[1].size }}
   {% endfor %}
 {% endcapture %}
-{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
-{% for temptag in sortedtemptags %}
-  {% assign tagitems = temptag | split: '#' %}
-  {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
-  <a href="/tags/{{ tagname }}"><code class="highligher-rouge"><nobr>{{ tagname }}</nobr></code></a>
-{% endfor %}
+
+{% if tempTags %}
+  {% assign sortedTempTags = tempTags | split:' ' | sort | reverse %}
+  <div class="tag-cloud">
+    <span class="tags-title">Tags:</span>
+    {% for tempTag in sortedTempTags %}
+      {% assign tagitems = tempTag | split: '#' %}
+      {% capture tagName %}{{ tagitems[1] }}{% endcapture %}
+      <a class="tag" href="/tags/{{ tagName }}">
+        <code class="highligher-rouge"><nobr>{{ tagName }}</nobr></code>
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}

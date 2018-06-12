@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "QuickSort is actually two different algorithms (Lomuto and Hoare)"
 date:   2018-06-05 00:00:00 +0000
 tags: Computer-Science
@@ -8,8 +8,6 @@ image:
   src: "/assets/images/face-off.jpg"
   title: "do not confuse"
 ---
-
-# {{ page.title }}
 
 ## General observations
 

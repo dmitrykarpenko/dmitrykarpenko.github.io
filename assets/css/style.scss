@@ -16,6 +16,9 @@
 // .quote-debater-2 {
 //   color: rgb(20, 56, 14);
 // }
+.handwritten {
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+}
 
 #main-content {
   // makes article images also look like printed photos
@@ -28,6 +31,18 @@
       box-shadow: 0 4px 6px rgba(0,0,0,.3);
 
       max-width: 95%;
+  }
+}
+
+.tag-cloud {
+  .tags-title {
+    @extend .handwritten;
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 10px;
+  }
+  .tag {
+    padding-right: 7px;
   }
 }
 
@@ -47,7 +62,7 @@
 
 aside {
   .menu-title {
-    font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+    @extend .handwritten;
     font-size: 18px;
     font-weight: 700;
   }

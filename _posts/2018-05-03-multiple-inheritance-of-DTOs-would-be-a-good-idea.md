@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Multiple inheritance of DTOs would be a good idea"
 date:   2018-05-03 00:00:00 +0000
 tags: ORM C-Sharp Concept
@@ -9,7 +9,7 @@ image:
   title: "restrict or warn?"
 ---
 
-# {{ page.title }}
+## Let's start from afar
 
 C# 8 is to have default interface implementations as one of it's new features
 (as it's described e.g. [here](https://stackify.com/csharp-8-features/)).
