@@ -7,6 +7,8 @@ comments: true
 image:
   path: "/assets/images/converging-parts-rainbow.jpg"
   title: "parts to combine"
+description: >-
+    How delegates can be useful to adhere to the "don't repeat yourself" (DRY) principle.
 ---
 
 ## General observations
