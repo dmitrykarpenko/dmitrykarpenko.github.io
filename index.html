@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% comment %} --- display only on first page --- {% endcomment %}
+<!-- Displays topics (i.e. tags) only on the first page -->
 {% unless paginator.previous_page %}
   <h1>Topics of interest to me</h1>
   <div class="tags-at-index">
@@ -29,6 +29,7 @@ layout: default
       if paginator.previous_page
         %}, page #{{ paginator.page }}{% endif %}
   </h1>
+
   <!-- This loops through the paginated posts -->
   {% for post in paginator.posts %}
     <div class="post">
