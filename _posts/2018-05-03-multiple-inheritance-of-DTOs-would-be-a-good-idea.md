@@ -5,7 +5,7 @@ date:   2018-05-03 00:00:00 +0000
 tags: ORM C-Sharp Concept
 comments: true
 image:
-  src: "/assets/images/arrows-sign.jpg"
+  path: "/assets/images/arrows-sign.jpg"
   title: "restrict or warn?"
 ---
 

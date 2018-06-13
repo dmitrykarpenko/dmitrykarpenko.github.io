@@ -14,10 +14,10 @@ image:
     <div class="polaroid-images">
       {% for page in site.pages %}
         <!-- Takes images only from tag pages -->
-        {% if post.layout == tag-page and page.image.src %}
+        {% if post.layout == tag-page and page.image.path %}
           {% assign imageTitle = page.image.title %}
           <a href="/tags/{{ page.tag }}" title="{{ page.tag }}">
-            <img height="130" src="{{ page.image.src }}"
+            <img height="130" src="{{ page.image.path }}"
                  alt="{{ imageTitle }}" title="{{ imageTitle }}" />
           </a>
         {% endif %}

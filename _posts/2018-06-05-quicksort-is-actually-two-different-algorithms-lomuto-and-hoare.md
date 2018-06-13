@@ -5,7 +5,7 @@ date:   2018-06-05 00:00:00 +0000
 tags: Computer-Science
 comments: true
 image:
-  src: "/assets/images/face-off.jpg"
+  path: "/assets/images/face-off.jpg"
   title: "do not confuse"
 ---
 
