@@ -43,12 +43,23 @@
 .tag-cloud {
   .tags-title {
     @extend .handwritten;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
-    padding-right: 10px;
+    margin-right: 7px;
   }
   .tag {
-    padding-right: 7px;
+    .highligher-rouge {
+      font-size: 15px;
+    }
+    display: inline-block;
+    margin: 5px;
+    &:hover {
+      .highligher-rouge {
+        color: black;
+        border: solid 1px #9ddcff; // 2px #dbe7f3;
+      }
+      // margin: 4px;
+    }
   }
 }
 
