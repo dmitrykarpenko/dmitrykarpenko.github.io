@@ -4,6 +4,6 @@ title: "Tag: Concept"
 tag: "Concept"
 image:
   src: "/assets/images/project-draft-sketch.png"
-  title: "concept"
+  title: "ideas and concepts"
   href: "/tags/Concept.html"
 ---
