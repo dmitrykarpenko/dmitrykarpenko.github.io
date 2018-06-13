@@ -23,6 +23,7 @@
 
 .typewritten {
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  font-weight: 500;
 }
 
 #main-content {
@@ -67,7 +68,7 @@
 
 .paginator-posts {
   margin-top: 20px;
-  .post {
+  .post-preview {
     // background: white;
     margin: 25px 0;
     background-color: #fff;
@@ -78,7 +79,18 @@
 
     // max-width: 95%;
 
-    h2, h3, .author {
+    .title {
+      color: #474747;
+      &:hover {
+        color: black;
+      }
+    }
+
+    h2, h3 {
+      padding-left: 33px;
+    }
+    .author {
+      @extend .typewritten;
       padding-left: 33px;
       .date {
         font-size: 13px;
@@ -88,12 +100,11 @@
     .content {
       // display: block;
       padding-bottom: 23px;
-
       ol {
         margin-left: 23px;
       }
-
       .read-more {
+        @extend .typewritten;
         float: right;
       }
     }
@@ -212,20 +223,18 @@ aside {
     display: none;
   }
   display: block;
-  margin-top: 30px;
+  margin-top: 20px;
   height: 400px;
   .polaroid-images {
     a:after {
       @extend .typewritten;
       font-size: 13px;
-      font-weight: 500;
     }
   }
 }
 
 .pagination {
   @extend .typewritten;
-  font-weight: 500;
 }
 
 .polaroid-images {

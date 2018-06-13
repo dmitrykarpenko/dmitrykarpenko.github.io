@@ -4,13 +4,14 @@ layout: default
 
 <!-- Displays topics (i.e. tags) only on the first page -->
 {% unless paginator.previous_page %}
-  <h1>Topics of interest to me</h1>
+  <h1>Topics of interest</h1>
   <div class="tags-at-index">
     {% include tag-cloud.html %}
   </div>
   <div class="polaroid-images-at-index">
     <div class="polaroid-images">
       {% for page in site.pages %}
+        <!-- Takes images only from tag pages -->
         {% if post.layout == tag-page and page.image.src %}
           {% assign imageTitle = page.image.title %}
           <a href="/tags/{{ page.tag }}" title="{{ page.tag }}">
@@ -32,14 +33,15 @@ layout: default
 
   <!-- This loops through the paginated posts -->
   {% for post in paginator.posts %}
-    <div class="post">
-      <h2>{{ post.title }}</h1>
+    <div class="post-preview">
+      <h2><a class="title" href="{{ post.url }}">{{ post.title }}</a></h1>
       <p class="author">
         <span class="date">{{ post.date | date_to_long_string }}</span>
       </p>
       <div class="content">
         {% if post.content contains '<!--preview-break-->' %}
           {{ post.content | split: '<!--preview-break-->' | first
+              | replace: 'h3 id=', 'h4 id=' | replace: '/h3', '/h4'
               | replace: 'h2 id=', 'h3 id=' | replace: '/h2', '/h3' }}
           <a class="read-more" href="{{ post.url }}">... read more</a>
         {% endif %}
