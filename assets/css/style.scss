@@ -16,22 +16,27 @@
 // .quote-debater-2 {
 //   color: rgb(20, 56, 14);
 // }
+
 .handwritten {
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
 }
 
-#main-content {
-  // makes article images also look like printed photos
-  img {
-      background: white;
-      margin: 5px;
-      padding: 10px;
-      -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
-      -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
-      box-shadow: 0 4px 6px rgba(0,0,0,.3);
+.typewritten {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
 
-      max-width: 95%;
-  }
+#main-content {
+   // makes article images also look like printed photos
+   img.shadow {
+       background: white;
+       margin: 5px;
+       padding: 10px;
+       -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+       -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+       box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+
+       max-width: 95%;
+   }
 }
 
 .tag-cloud {
@@ -196,6 +201,33 @@ aside {
   }
 }
 
+.tags-at-index {
+  @media only screen and (max-width: 959px) {
+    display: block;
+  }
+  display: none;
+}
+.polaroid-images-at-index {
+  @media only screen and (max-width: 959px) {
+    display: none;
+  }
+  display: block;
+  margin-top: 30px;
+  height: 400px;
+  .polaroid-images {
+    a:after {
+      @extend .typewritten;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+}
+
+.pagination {
+  @extend .typewritten;
+  font-weight: 500;
+}
+
 .polaroid-images {
   // hide if small screen
   @media only screen and (max-width: 767px) {
@@ -205,8 +237,8 @@ aside {
   a {
       background: white;
       display: inline;
-      float: right;
-      margin: 0 5px 10px;
+      float: left;
+      margin: 0 10px 20px;
       padding: 10px 10px 25px;
       text-align: center;
       text-decoration: none;
@@ -219,17 +251,25 @@ aside {
       z-index: 0;
       position:relative;
 
-      top: -200px;
-      right: 80px;
+      &.top-image {
+        float: right;
+        top: -200px;
+        right: 80px;
+      }
   }
   // add the caption on to the image
   a:after {
-      color: #333;
-      font-size: 20px;
-      content: attr(title);
-      position: relative;
-      top:15px;
+    @extend .handwritten;
+    color: #333;
+    font-size: 16px;
+    content: attr(title);
+    position: relative;
+    top: 15px;
   }
+  a.top-image:after {
+    font-size: 20px;
+  }
+
   // fit the polaroid area
   img {
       display: block;

@@ -2,10 +2,33 @@
 layout: default
 ---
 
-{% include index.md %}
+{% comment %} --- display only on first page --- {% endcomment %}
+{% unless paginator.previous_page %}
+  <h1>Topics of interest to me</h1>
+  <div class="tags-at-index">
+    {% include tag-cloud.html %}
+  </div>
+  <div class="polaroid-images-at-index">
+    <div class="polaroid-images">
+      {% for page in site.pages %}
+        {% if post.layout == tag-page and page.image.src %}
+          {% assign imageTitle = page.image.title %}
+          <a href="/tags/{{ page.tag }}" title="{{ page.tag }}">
+            <img height="130" src="{{ page.image.src }}"
+                 alt="{{ imageTitle }}" title="{{ imageTitle }}" />
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endunless %}
 
 <div class="paginator-posts">
-  <h1>Recent articles</h1>
+  <h1>
+    Recent articles{%
+      if paginator.previous_page
+        %}, page #{{ paginator.page }}{% endif %}
+  </h1>
   <!-- This loops through the paginated posts -->
   {% for post in paginator.posts %}
     <div class="post">
@@ -25,11 +48,11 @@ layout: default
 
   <!-- Pagination links -->
   {% if paginator.total_pages > 1 %}
-  <div class="pagination">
+  <div class="pagination" align="center">
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Prev</a>
     {% else %}
-      <span>&laquo; Prev</span>
+      <span>&larr; Prev</span>
     {% endif %}
 
     {% for page in (1..paginator.total_pages) %}
@@ -43,9 +66,9 @@ layout: default
     {% endfor %}
 
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &rarr;</a>
     {% else %}
-      <span>Next &raquo;</span>
+      <span>Next 	&rarr;</span>
     {% endif %}
   </div>
   {% endif %}

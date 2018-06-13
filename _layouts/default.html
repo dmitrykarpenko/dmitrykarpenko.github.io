@@ -50,7 +50,7 @@
         {% assign imageSrc = page.image.src | default: "/assets/images/cubes-inside-a-cube.jpg" %}
         {% assign imageTitle = page.image.title | default: "Cubes" %}
         {% assign imageHref = page.image.href | default: page.url %}
-        <a href="{{ imageHref }}" title="{{ imageTitle }}">
+        <a class="top-image" href="{{ imageHref }}" title="{{ imageTitle }}">
           <img height="200" src="{{ imageSrc }}" alt="{{ imageTitle }}" title="{{ imageTitle }}" />
         </a>
       </div>

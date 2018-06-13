@@ -83,7 +83,7 @@ As a good power tool, `PowerShell` has a command (or cmdlet to be precise) right
 
 ... right? Wrong!
 
-![Wrong](/assets/images/wrong-cut.gif  "Wrong")
+<img class="shadow" src="/assets/images/wrong-cut.gif" alt="Wrong" title="Wrong">
 
 The following code:
 

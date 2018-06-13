@@ -54,7 +54,7 @@ Those two are the Lomuto partition an the Hoare partition, which:
 
 So, are they usually referred to as two different algorithms of the same idea? Not necessarily. For example, the [QuickSort article on GeeksForGeeks](https://www.geeksforgeeks.org/quick-sort/) describes the algorithms using the Lomuto's partition -- apparently because it's code is shorter -- but the partition function isn't explicitly called this way (except for the "miscellaneous" section).
 
-![Partition function isn't called](/assets/images/geeks-for-geeks_guicksort_lomuto-search.png  "Partition function isn't called")
+<img class="shadow" src="/assets/images/geeks-for-geeks_guicksort_lomuto-search.png" alt="Partition function isn't called" title="Partition function isn't called">
 
 The article is quite detailed and it even has mentions of possible QuickSort's modifications, e.g. "3-Way QuickSort" and "Iterative Quick Sort", but not how the classic recursive algorithm could use other partition function. And there's also [a dedicated article on the topic](https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/) -- but you have to know you need to search it first.
 
@@ -301,7 +301,7 @@ Therefore, **here, Hoare's version works ~17 times faster, than Lomuto's**. The 
 
 To me, the Hoare's partition function looks much more intuitive. Imagine yourself as a thimblerigger - how would you move the cups in order to do it fast?
 
-![Thimblerigger](/assets/images/thimblerigger-cups.jpg  "Thimblerigger")
+<img class="shadow" src="/assets/images/thimblerigger-cups.jpg" alt="Thimblerigger" title="Thimblerigger">
 
 To me a sequence of exchanges of some left cup with some right cup while keeping a selected cup between them (whether it's empty or not) seems natural (and that's also how the actual "performers" do it), which is similar to Hoare's method.
 

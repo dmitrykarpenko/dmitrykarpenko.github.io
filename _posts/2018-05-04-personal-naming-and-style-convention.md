@@ -31,13 +31,13 @@ Everybody's probably heard of how [naming things is one of the hardest things](h
 
 Have you ever noticed how even heavily blurred code is still distinguishable?
 
-![Blurred code](/assets/images/blurred-code-without-a-hat.jpg  "Blurred code")
+<img class="shadow" src="/assets/images/blurred-code-without-a-hat.jpg" alt="Blurred code" title="Blurred code">
 
 You probably can guess a language -- or even what concrete snippet it is -- if you've reviewed (or written) the snippet attentively.
 
 Same principle doesn't apply to a regular text though (except for the case when an editor or reader person knows where a paragraph of such rectangular shape is).
 
-![Blurred text](/assets/images/blurred-book-page.jpg "Blurred text")
+<img class="shadow" src="/assets/images/blurred-book-page.jpg" alt="Blurred text" title="Blurred text">
 
 And that's how human brain does its optimization -- you don't have to read each and every word (or even half of them) to guess what code you're looking at.
 
